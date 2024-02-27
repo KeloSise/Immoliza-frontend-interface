@@ -11,6 +11,14 @@ latitude = st.number_input('Latitude', value=0.0)
 longitude = st.number_input('Longitude', value=0.0)
 construction_year = st.number_input('Construction Year', min_value=1900, value=2000)
 
+# Additional model features
+zip_code = st.text_input('ZIP Code')
+primary_energy_consumption_sqm = st.number_input('Primary Energy Consumption (sqm)')
+fl_garden = st.checkbox('Garden')
+fl_terrace = st.checkbox('Terrace')
+fl_swimming_pool = st.checkbox('Swimming Pool')
+fl_floodzone = st.checkbox('Flood Zone')
+property_type = st.selectbox('Property Type', ['Apartment', 'House', 'Villa'])
 
 # When the 'Predict' button is clicked
 if st.button('Predict the property price'):
@@ -24,8 +32,15 @@ if st.button('Predict the property price'):
         'surface_land_sqm': surface_land_sqm,
         'latitude': latitude,
         'longitude': longitude,
-        'construction_year': construction_year
-    }
+        'construction_year': construction_year,
+        'zip_code': zip_code,
+        'primary_energy_consumption_sqm': primary_energy_consumption_sqm,
+        'fl_garden': fl_garden,
+        'fl_terrace': fl_terrace,
+        'fl_swimming_pool': fl_swimming_pool,
+        'fl_floodzone': fl_floodzone,
+        'property_type': property_type
+        }
     
     # POST request to the API
     
